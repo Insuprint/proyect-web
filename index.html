@@ -1,131 +1,73 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insu-Print</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #007BFF;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        section {
-            padding: 20px;
-        }
-        .productos, .servicios {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            text-align: center;
-        }
-        .card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .boton {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            color: white;
-            background: #28a745;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #f1f1f1;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>Bienvenidos a Insu-Print</h1>
-    <p>Tu socio de confianza en soluciones de impresión
-
-        Nosotros nos especializamos en ofrecerte lo mejor en impresoras de última tecnología, servicios de reparación de impresoras láser y accesorios e insumos para mantener tu equipo funcionando al máximo. Ya sea que estés buscando una impresora eficiente para tu hogar o empresa, reparar tu impresora láser de manera rápida y profesional, o reemplazar cartuchos y toner, en Insu-Print tenemos la solución perfecta para vos.
-        
-        ¿Por qué elegirnos?
-        
-        Impresoras de Alta Calidad: Contamos con una amplia gama de impresoras, tanto láser como de inyección de tinta, que se adaptan a todas tus necesidades. Ya sea para trabajo en oficina, impresión de documentos o proyectos más complejos, tenemos la opción ideal para ti.
-        
-        Reparación Especializada: Nuestro equipo de técnicos altamente capacitados se asegura de que tu impresora vuelva a estar como nueva. Ofrecemos servicios de reparación rápidos y eficientes, garantizando un mínimo tiempo de inactividad.
-        
-        Insumos para Impresoras: Además de vender impresoras, ofrecemos insumos de calidad premium. Desde cartuchos de tinta hasta tóners para impresoras láser, nuestros productos garantizan un rendimiento óptimo y duradero, asegurando una calidad de impresión excepcional.
-        
-        En [Nombre de la Empresa], entendemos que cada cliente tiene necesidades únicas. Por eso, nuestro equipo está siempre dispuesto a ofrecerte la mejor atención personalizada, ayudándote a elegir el producto adecuado y dándote el soporte que necesitas para que nunca falte calidad en tus impresiones.
-        
-        ¡Que cada impresión cuente! Ya sea para tu oficina, negocio o uso personal, te ofrecemos las mejores opciones con un servicio al cliente inigualable. ¡No esperes más y sumate a nuestra familia de clientes satisfechos!</p>
-</header>
-
-<section>
-    <h2>Artículos en Venta</h2>
-    <div class="productos" id="productos">
-        <!-- Los productos se cargarán aquí automáticamente -->
-    </div>
-</section>
-
-<section>
-    <h2>Servicios Disponibles</h2>
-    <div class="servicios" id="servicios">
-        <!-- Los servicios se cargarán aquí automáticamente -->
-    </div>
-</section>
-
-<footer>
-    <p>© 2024 Empresa XYZ - Todos los derechos reservados.</p>
-</footer>
-
-<script>
-    // Carga de datos desde un archivo JSON
-    fetch('datos.json')
-        .then(response => response.json())
-        .then(data => {
-            const productosDiv = document.getElementById('productos');
-            const serviciosDiv = document.getElementById('servicios');
-
-            // Cargar productos
-            data.productos.forEach(producto => {
-                const productoHTML = `
-                    <div class="card">
-                        <img src="${producto.imagen}" alt="${producto.nombre}">
-                        <h3>${producto.nombre}</h3>
-                        <p>${producto.descripcion}</p>
-                        <p><strong>$${producto.precio}</strong></p>
-                        <a href="https://wa.me/${data.whatsapp}?text=Hola,%20quiero%20comprar%20${encodeURIComponent(producto.nombre)}" class="boton">Comprar</a>
-                    </div>
-                `;
-                productosDiv.innerHTML += productoHTML;
-            });
-
-            // Cargar servicios
-            data.servicios.forEach(servicio => {
-                const servicioHTML = `
-                    <div class="card">
-                        <h3>${servicio.nombre}</h3>
-                        <p>${servicio.descripcion}</p>
-                        <a href="https://wa.me/${data.whatsapp}?text=Hola,%20quiero%20información%20sobre%20${encodeURIComponent(servicio.nombre)}" class="boton">Contactar</a>
-                    </div>
-                `;
-                serviciosDiv.innerHTML += servicioHTML;
-            });
-        });
-</script>
-
-</body>
+<html>
+ <head>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Nikki+Dixon&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Nikki Dixon', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white flex flex-col items-center">
+  <!-- Header Section -->
+  <div class="bg-blue-500 py-2 w-full flex justify-center rounded-b-lg">
+   <span class="text-white text-sm tracking-wider">
+    Envios a todo Buenos Aires
+   </span>
+  </div>
+  <!-- Title Section -->
+  <div class="relative py-24 w-full text-center">
+   <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('https://files.fm/f/swvymwutyc');">
+   </div>
+   <h1 class="relative text-2xl font-bold tracking-wider">
+    Insu-Print
+   </h1>
+  </div>
+  <!-- Buttons Section -->
+  <div class="mt-16 w-full text-center">
+   <div class="flex flex-col md:flex-row justify-center gap-4">
+    <button class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
+     Contacto
+    </button>
+    <button class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
+     Productos
+    </button>
+   </div>
+   <div class="flex justify-center mt-4">
+    <button class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
+     Conocer la Empresa
+    </button>
+   </div>
+  </div>
+  <!-- Products Section -->
+  <div class="mt-16 w-full text-center">
+   <h2 class="text-2xl font-bold tracking-wider mb-8">
+    Productos Disponibles
+   </h2>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+    <!-- Product 1 -->
+    <a class="border p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" href="#">
+     <img alt="Placeholder product image" class="w-full h-48 object-cover mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/zJCfwihfHSmv5UQxjSegfcTUlx6Od6vrQh1qCazTBCGFReqeE.jpg" width="300"/>
+     <h3 class="text-lg font-bold tracking-wider">
+      Producto 1
+     </h3>
+    </a>
+    <!-- Product 2 -->
+    <a class="border p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" href="#">
+     <img alt="Placeholder product image" class="w-full h-48 object-cover mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/zJCfwihfHSmv5UQxjSegfcTUlx6Od6vrQh1qCazTBCGFReqeE.jpg" width="300"/>
+     <h3 class="text-lg font-bold tracking-wider">
+      Producto 2
+     </h3>
+    </a>
+    <!-- Product 3 -->
+    <a class="border p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" href="#">
+     <img alt="Placeholder product image" class="w-full h-48 object-cover mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/zJCfwihfHSmv5UQxjSegfcTUlx6Od6vrQh1qCazTBCGFReqeE.jpg" width="300"/>
+     <h3 class="text-lg font-bold tracking-wider">
+      Producto 3
+     </h3>
+    </a>
+   </div>
+  </div>
+ </body>
 </html>
