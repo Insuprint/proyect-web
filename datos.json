@@ -1,0 +1,27 @@
+{
+    "whatsapp": "01166862797",
+    "productos": [
+        {
+            "nombre": "Producto 1",
+            "descripcion": "Descripción breve del Producto 1.",
+            "precio": 100.00,
+            "imagen": "https://via.placeholder.com/300x200?text=Producto+1"
+        },
+        {
+            "nombre": "Producto 2",
+            "descripcion": "Descripción breve del Producto 2.",
+            "precio": 200.00,
+            "imagen": "https://via.placeholder.com/300x200?text=Producto+2"
+        }
+    ],
+    "servicios": [
+        {
+            "nombre": "Servicio 1",
+            "descripcion": "Descripción breve del Servicio 1."
+        },
+        {
+            "nombre": "Servicio 2",
+            "descripcion": "Descripción breve del Servicio 2."
+        }
+    ]
+}

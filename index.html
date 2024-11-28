@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insu-Print</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        section {
+            padding: 20px;
+        }
+        .productos, .servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .boton {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            color: white;
+            background: #28a745;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bienvenidos a Insu-Print</h1>
+    <p>Tu socio de confianza en soluciones de impresión
+
+        Nosotros nos especializamos en ofrecerte lo mejor en impresoras de última tecnología, servicios de reparación de impresoras láser y accesorios e insumos para mantener tu equipo funcionando al máximo. Ya sea que estés buscando una impresora eficiente para tu hogar o empresa, reparar tu impresora láser de manera rápida y profesional, o reemplazar cartuchos y toner, en Insu-Print tenemos la solución perfecta para vos.
+        
+        ¿Por qué elegirnos?
+        
+        Impresoras de Alta Calidad: Contamos con una amplia gama de impresoras, tanto láser como de inyección de tinta, que se adaptan a todas tus necesidades. Ya sea para trabajo en oficina, impresión de documentos o proyectos más complejos, tenemos la opción ideal para ti.
+        
+        Reparación Especializada: Nuestro equipo de técnicos altamente capacitados se asegura de que tu impresora vuelva a estar como nueva. Ofrecemos servicios de reparación rápidos y eficientes, garantizando un mínimo tiempo de inactividad.
+        
+        Insumos para Impresoras: Además de vender impresoras, ofrecemos insumos de calidad premium. Desde cartuchos de tinta hasta tóners para impresoras láser, nuestros productos garantizan un rendimiento óptimo y duradero, asegurando una calidad de impresión excepcional.
+        
+        En [Nombre de la Empresa], entendemos que cada cliente tiene necesidades únicas. Por eso, nuestro equipo está siempre dispuesto a ofrecerte la mejor atención personalizada, ayudándote a elegir el producto adecuado y dándote el soporte que necesitas para que nunca falte calidad en tus impresiones.
+        
+        ¡Que cada impresión cuente! Ya sea para tu oficina, negocio o uso personal, te ofrecemos las mejores opciones con un servicio al cliente inigualable. ¡No esperes más y sumate a nuestra familia de clientes satisfechos!</p>
+</header>
+
+<section>
+    <h2>Artículos en Venta</h2>
+    <div class="productos" id="productos">
+        <!-- Los productos se cargarán aquí automáticamente -->
+    </div>
+</section>
+
+<section>
+    <h2>Servicios Disponibles</h2>
+    <div class="servicios" id="servicios">
+        <!-- Los servicios se cargarán aquí automáticamente -->
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 Empresa XYZ - Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    // Carga de datos desde un archivo JSON
+    fetch('datos.json')
+        .then(response => response.json())
+        .then(data => {
+            const productosDiv = document.getElementById('productos');
+            const serviciosDiv = document.getElementById('servicios');
+
+            // Cargar productos
+            data.productos.forEach(producto => {
+                const productoHTML = `
+                    <div class="card">
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
+                        <h3>${producto.nombre}</h3>
+                        <p>${producto.descripcion}</p>
+                        <p><strong>$${producto.precio}</strong></p>
+                        <a href="https://wa.me/${data.whatsapp}?text=Hola,%20quiero%20comprar%20${encodeURIComponent(producto.nombre)}" class="boton">Comprar</a>
+                    </div>
+                `;
+                productosDiv.innerHTML += productoHTML;
+            });
+
+            // Cargar servicios
+            data.servicios.forEach(servicio => {
+                const servicioHTML = `
+                    <div class="card">
+                        <h3>${servicio.nombre}</h3>
+                        <p>${servicio.descripcion}</p>
+                        <a href="https://wa.me/${data.whatsapp}?text=Hola,%20quiero%20información%20sobre%20${encodeURIComponent(servicio.nombre)}" class="boton">Contactar</a>
+                    </div>
+                `;
+                serviciosDiv.innerHTML += servicioHTML;
+            });
+        });
+</script>
+
+</body>
+</html>
