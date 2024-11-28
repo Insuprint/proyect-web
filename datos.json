@@ -1,27 +1,24 @@
-{
-    "whatsapp": "01166862797",
-    "productos": [
-        {
-            "nombre": "Producto 1",
-            "descripcion": "Descripción breve del Producto 1.",
-            "precio": 100.00,
-            "imagen": "https://via.placeholder.com/300x200?text=Producto+1"
-        },
-        {
-            "nombre": "Producto 2",
-            "descripcion": "Descripción breve del Producto 2.",
-            "precio": 200.00,
-            "imagen": "https://via.placeholder.com/300x200?text=Producto+2"
-        }
-    ],
-    "servicios": [
-        {
-            "nombre": "Servicio 1",
-            "descripcion": "Descripción breve del Servicio 1."
-        },
-        {
-            "nombre": "Servicio 2",
-            "descripcion": "Descripción breve del Servicio 2."
-        }
-    ]
-}
+[
+    {
+      "id": 1,
+      "name": "Producto 1",
+      "description": "Descripción breve del producto 1.",
+      "image": "https://via.placeholder.com/300x200",
+      "link": "ProductServlet?id=1"
+    },
+    {
+      "id": 2,
+      "name": "Producto 2",
+      "description": "Descripción breve del producto 2.",
+      "image": "https://via.placeholder.com/300x200",
+      "link": "ProductServlet?id=2"
+    },
+    {
+      "id": 3,
+      "name": "Producto 3",
+      "description": "Descripción breve del producto 3.",
+      "image": "https://via.placeholder.com/300x200",
+      "link": "ProductServlet?id=3"
+    }
+  ]
+  

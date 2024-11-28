@@ -1,73 +1,78 @@
-<html>
- <head>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Nikki+Dixon&amp;display=swap" rel="stylesheet"/>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insu-Print</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-   body {
-      font-family: 'Nikki Dixon', sans-serif;
+    body {
+      font-family: 'Open Sans', sans-serif;
     }
   </style>
- </head>
- <body class="bg-white flex flex-col items-center">
+</head>
+<body class="bg-white flex flex-col items-center">
   <!-- Header Section -->
   <div class="bg-blue-500 py-2 w-full flex justify-center rounded-b-lg">
-   <span class="text-white text-sm tracking-wider">
-    Envios a todo Buenos Aires
-   </span>
+    <span class="text-white text-sm tracking-wider">
+      Envios a todo Buenos Aires
+    </span>
   </div>
   <!-- Title Section -->
   <div class="relative py-24 w-full text-center">
-   <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('https://files.fm/f/swvymwutyc');">
-   </div>
-   <h1 class="relative text-2xl font-bold tracking-wider">
-    Insu-Print
-   </h1>
+    <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('https://via.placeholder.com/1500x600');"></div>
+    <h1 class="relative text-2xl font-bold tracking-wider text-white">
+      Insu-Print
+    </h1>
   </div>
   <!-- Buttons Section -->
   <div class="mt-16 w-full text-center">
-   <div class="flex flex-col md:flex-row justify-center gap-4">
-    <button class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
-     Contacto
-    </button>
-    <button class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
-     Productos
-    </button>
-   </div>
-   <div class="flex justify-center mt-4">
-    <button class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
-     Conocer la Empresa
-    </button>
-   </div>
+    <div class="flex flex-col md:flex-row justify-center gap-4">
+      <a href="contacto.jsp" class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
+        Contacto
+      </a>
+      <a href="productos.jsp" class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
+        Productos
+      </a>
+    </div>
+    <div class="flex justify-center mt-4">
+      <a href="conocer-empresa.jsp" class="bg-blue-500 text-white py-3 px-6 rounded-lg tracking-wider text-lg">
+        Conocer la Empresa
+      </a>
+    </div>
   </div>
   <!-- Products Section -->
   <div class="mt-16 w-full text-center">
-   <h2 class="text-2xl font-bold tracking-wider mb-8">
-    Productos Disponibles
-   </h2>
-   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-    <!-- Product 1 -->
-    <a class="border p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" href="#">
-     <img alt="Placeholder product image" class="w-full h-48 object-cover mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/zJCfwihfHSmv5UQxjSegfcTUlx6Od6vrQh1qCazTBCGFReqeE.jpg" width="300"/>
-     <h3 class="text-lg font-bold tracking-wider">
-      Producto 1
-     </h3>
-    </a>
-    <!-- Product 2 -->
-    <a class="border p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" href="#">
-     <img alt="Placeholder product image" class="w-full h-48 object-cover mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/zJCfwihfHSmv5UQxjSegfcTUlx6Od6vrQh1qCazTBCGFReqeE.jpg" width="300"/>
-     <h3 class="text-lg font-bold tracking-wider">
-      Producto 2
-     </h3>
-    </a>
-    <!-- Product 3 -->
-    <a class="border p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" href="#">
-     <img alt="Placeholder product image" class="w-full h-48 object-cover mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/zJCfwihfHSmv5UQxjSegfcTUlx6Od6vrQh1qCazTBCGFReqeE.jpg" width="300"/>
-     <h3 class="text-lg font-bold tracking-wider">
-      Producto 3
-     </h3>
-    </a>
-   </div>
+    <h2 class="text-2xl font-bold tracking-wider mb-8">
+      Productos Disponibles
+    </h2>
+    <div id="productos-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4"></div>
   </div>
- </body>
+
+  <!-- Script to fetch and display products -->
+  <script>
+    // Fetch the product data from the JSON file
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('productos-container');
+        
+        // Loop through the data and create product elements
+        data.forEach(product => {
+          const productElement = document.createElement('a');
+          productElement.classList.add('border', 'p-4', 'rounded-lg', 'shadow-lg', 'hover:shadow-xl', 'transition-shadow', 'duration-300');
+          productElement.href = product.link;
+
+          productElement.innerHTML = `
+            <img alt="${product.name}" class="w-full h-48 object-cover mb-4" src="${product.image}" />
+            <h3 class="text-lg font-bold tracking-wider">${product.name}</h3>
+            <p class="text-sm text-gray-600">${product.description}</p>
+          `;
+
+          container.appendChild(productElement);
+        });
+      })
+      .catch(error => console.error('Error loading the product data:', error));
+  </script>
+</body>
 </html>
